@@ -55,6 +55,9 @@ devDependencies:
   '@types/fs-extra':
     specifier: ^11.0.4
     version: 11.0.4
+  '@types/node':
+    specifier: ^20.14.2
+    version: 20.14.2
   '@types/resolve':
     specifier: ^1.20.6
     version: 1.20.6
