@@ -4,7 +4,7 @@ import connect from 'connect'
 // picocolors 是一个用来在命令行显示不同颜色文本的工具
 import { blue, green } from 'picocolors'
 // 引入预构建
-import { optimizer } from '../optimizer/index'
+import { optimizer } from '../optimizer'
 
 export async function startDevServer() {
   const app = connect()
