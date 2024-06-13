@@ -1,3 +1,4 @@
+import path from 'path'
 export const EXTERNAL_TYPES = [
   "css",
   "less",
@@ -22,3 +23,5 @@ export const EXTERNAL_TYPES = [
 
 // 正则表达式：以字母、数字、下划线或 @ 开头，并且第二个字符不是冒号` : `的任意字符串。
 export const BARE_IMPORT_RE = /^[\w@][^:]/;
+// 将预构建产物默认存放在 node_modules 中的 .m-vite 目录中
+export const PRE_BUNDLE_DIR = path.join('node_modules', '.m-vite')
