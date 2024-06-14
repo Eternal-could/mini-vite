@@ -3,11 +3,10 @@ import { build } from 'esbuild'
 import { green } from 'picocolors'
 import path from 'path';
 import {scanPlugin} from './scanPlugin';
+import {PRE_BUNDLE_DIR} from '../constants';
+import {preBundlePlugin} from './preBundlePlugin';
 
 export async function optimizer(root:string) {
-  /*
-    TODO: 1. 确定入口 2. 从入口处扫描依赖 3. 预构建依赖
-  */
   // 1. 确定入口
   const entry = path.resolve(root, 'src/main.tsx')
 
@@ -25,4 +24,15 @@ export async function optimizer(root:string) {
       .map((item) => `  ${item}`)
       .join("\n")}`
   )
+
+  // 3. 预构建依赖
+  await build({
+    entryPoints: [...deps],
+    write: true,
+    bundle: true,
+    format: "esm",
+    splitting: true,
+    outdir: path.resolve(root, PRE_BUNDLE_DIR),
+    plugins: [preBundlePlugin(deps)],
+  });
 }
