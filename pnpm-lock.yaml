@@ -18,8 +18,8 @@ dependencies:
     specifier: ^4.3.5
     version: 4.3.5
   es-module-lexer:
-    specifier: ^1.5.3
-    version: 1.5.3
+    specifier: 0.10.5
+    version: 0.10.5
   esbuild:
     specifier: 0.14.38
     version: 0.14.38
@@ -686,8 +686,8 @@ packages:
     engines: {node: '>= 0.8'}
     dev: false
 
-  /es-module-lexer@1.5.3:
-    resolution: {integrity: sha512-i1gCgmR9dCl6Vil6UKPI/trA69s08g/syhiDK9TG0Nf1RJjjFI+AzoWW7sPufzkgYAn861skuCwJa0pIIHYxvg==}
+  /es-module-lexer@0.10.5:
+    resolution: {integrity: sha512-+7IwY/kiGAacQfY+YBhKMvEmyAJnw5grTUgjG85Pe7vcUI/6b7pZjZG8nQ7+48YhzEAEqrEgD2dCz/JIK+AYvw==}
     dev: false
 
   /esbuild-android-64@0.14.38:
