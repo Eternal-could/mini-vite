@@ -24,3 +24,6 @@ export const isJSRequest = (id: string): boolean => {
 };
 export const cleanUrl = (url: string): string =>
   url.replace(HASH_RE, "").replace(QEURY_RE, "");
+
+export const isCSSRequest = (id: string): boolean =>
+  cleanUrl(id).endsWith(".css");
