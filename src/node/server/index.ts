@@ -9,6 +9,7 @@ import {resolvePlugins} from '../plugins';
 import {createPluginContainer, PluginContainer} from '../pluginContainer';
 import {Plugin} from '../plugin';
 import { indexHtmlMiddleware } from "./middlewares/indexHtml";
+import {transformMiddleware} from './middlewares/transform';
 
 export interface ServerContext {
   root: string;
@@ -36,6 +37,9 @@ export async function startDevServer() {
       await plugin.configureServer(serverContext);
     }
   }
+
+  // // 核心编译逻辑
+  app.use(transformMiddleware(serverContext));
 
   // 入口 HTML 资源
   app.use(indexHtmlMiddleware(serverContext));
