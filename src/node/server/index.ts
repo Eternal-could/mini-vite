@@ -10,6 +10,7 @@ import {createPluginContainer, PluginContainer} from '../pluginContainer';
 import {Plugin} from '../plugin';
 import { indexHtmlMiddleware } from "./middlewares/indexHtml";
 import {transformMiddleware} from './middlewares/transform';
+import {staticMiddleware} from './middlewares/static';
 
 export interface ServerContext {
   root: string;
@@ -43,6 +44,9 @@ export async function startDevServer() {
 
   // 入口 HTML 资源
   app.use(indexHtmlMiddleware(serverContext));
+
+  // 静态资源
+  app.use(staticMiddleware(serverContext.root));
 
   app.listen(3000, async () => {
     await optimizer(root);
