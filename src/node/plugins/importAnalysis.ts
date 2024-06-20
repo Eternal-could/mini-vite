@@ -48,6 +48,7 @@ export function importAnalysisPlugin(): Plugin {
           ms.overwrite(modStart, modEnd, bundlePath);
         } else if (modSource.startsWith(".") || modSource.startsWith("/")) {
           // 直接调用插件上下文的 resolve 方法，会自动经过路径解析插件的处理
+          // @ts-ignore
           const resolved = await this.resolve(modSource, id);
           if (resolved) {
             ms.overwrite(modStart, modEnd, resolved.id);
